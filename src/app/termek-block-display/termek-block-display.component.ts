@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ITermek } from '../model/termek-interface';
+import { ITermek } from '../dto/termek-interface';
+import { Termek } from '../model';
 
 @Component({
   selector: 'app-termek-block-display',
@@ -9,7 +10,7 @@ import { ITermek } from '../model/termek-interface';
 export class TermekBlockDisplayComponent implements OnInit {
 
   @Input("product")
-  termek: ITermek;
+  termek: Termek;
 
   constructor() { }
 

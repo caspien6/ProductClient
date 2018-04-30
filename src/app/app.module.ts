@@ -10,6 +10,8 @@ import { ProductService } from './product.service';
 import { TermekBlockDisplayComponent } from './termek-block-display/termek-block-display.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import { TermekBlockDisplayComponent } from './termek-block-display/termek-block
     BrowserModule,
     HttpClientModule,
     FormsModule
+    
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
