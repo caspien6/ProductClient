@@ -7,6 +7,7 @@
 
 import {Action} from '@ngrx/store';
 import {ApiTermekByIdGetParams} from '../../../../controllers/Termek';
+import * as __model from '../../../../model';
 
 export enum Actions {
   START = '[apiTermekByIdGet] Start',
@@ -21,7 +22,7 @@ export class Start implements Action {
 
 export class Success implements Action {
   readonly type = Actions.SUCCESS;
-  constructor(public payload: void) {}
+  constructor(public payload: __model.Termek) {}
 }
 
 export class Error implements Action {

@@ -15,6 +15,6 @@ export class AccountService {
 
   /** http://undefinedundefined/swagger-ui.html#!/Account/AccountLogoutPost */
   logout(): Observable<void> {
-    return this.http.post<void>(`/Account/Logout`, '');
+    return this.http.post<void>(`/Account/Logout`,1);
   }
 }

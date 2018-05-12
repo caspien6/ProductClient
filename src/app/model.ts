@@ -5,9 +5,5 @@
  *   "path": null
  */
 
-export * from './defs/Termek';
 export * from './defs/Kategoria';
-export * from './defs/KosarTetel';
-export * from './defs/Kosar';
-export * from './defs/Statusz';
-export * from './defs/Vevo';
+export * from './defs/Termek';

@@ -7,10 +7,11 @@
 
 import {createFeatureSelector} from '@ngrx/store';
 
+import * as __model from '../../../../model';
 import * as actions from './actions';
 
 export interface ApiTermekByIdGetState {
-  data: void;
+  data: __model.Termek;
   loading: boolean;
   error: string;
 }

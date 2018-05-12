@@ -6,23 +6,23 @@
  */
 
 import {Action} from '@ngrx/store';
-import {ByKategoryParams} from '../../../../controllers/Termek';
+import {ApiKategoryByIdGetParams} from '../../../../controllers/Category';
 import * as __model from '../../../../model';
 
 export enum Actions {
-  START = '[byKategory] Start',
-  SUCCESS = '[byKategory] Success',
-  ERROR = '[byKategory] Error',
+  START = '[apiKategoryByIdGet] Start',
+  SUCCESS = '[apiKategoryByIdGet] Success',
+  ERROR = '[apiKategoryByIdGet] Error',
 }
 
 export class Start implements Action {
   readonly type = Actions.START;
-  constructor(public payload: ByKategoryParams) {}
+  constructor(public payload: ApiKategoryByIdGetParams) {}
 }
 
 export class Success implements Action {
   readonly type = Actions.SUCCESS;
-  constructor(public payload: __model.Termek[]) {}
+  constructor(public payload: __model.Kategoria) {}
 }
 
 export class Error implements Action {
@@ -30,4 +30,4 @@ export class Error implements Action {
   constructor(public payload: string) {}
 }
 
-export type ByKategoryAction = Start | Success | Error;
+export type ApiKategoryByIdGetAction = Start | Success | Error;

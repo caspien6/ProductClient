@@ -3,9 +3,10 @@ import { ProductService } from '../product.service';
 import { ITermek } from '../dto/termek-interface';
 import { Conditional } from '@angular/compiler';
 
-import { TermekService } from '../controllers/Termek';
+import { TermekService, ByNameParams } from '../controllers/Termek';
 import { ApiTermekGetModule } from '../store/termek/apiTermekGet/apiTermekGet.module';
-import { Termek } from '../model';
+import { Termek, Kategoria } from '../model';
+import { CategoryService, ApiKategoryByIdGetParams } from '../controllers/Category';
 
 
 @Component({
@@ -17,10 +18,15 @@ import { Termek } from '../model';
 export class TermekekDisplayComponent implements OnInit {
 
   searchText: string='';
+  categoryText: string='';
   
-  constructor(private productservice: ProductService, private termekService : TermekService) { }
+  constructor(private productservice: ProductService, 
+    private termekService : TermekService,
+    private categoryService: CategoryService
+  ) { }
 
   termekek: Termek[];
+  kategoriak: Kategoria[];
 
   ngOnInit() {
     this.initializeData();
@@ -34,14 +40,25 @@ export class TermekekDisplayComponent implements OnInit {
     this.termekService.apiTermekGet().subscribe(data => {
       this.termekek = data;
     });
+    this.categoryService.apiKategoryGet().subscribe(data => {
+      this.kategoriak = data;
+    });
     
 
   }
 
   getTermeks(){
     if (this.searchText !== ''){
-      this.productservice.getProductsByName(this.searchText).subscribe(data => {
-        this.termekek = data;
+      this.termekService.byName(<ByNameParams>{name: this.searchText}).subscribe(data => {
+        this.termekek = <Termek[]>data;
+      });
+    }
+  }
+
+  getCategory(){
+    if (this.categoryText !== ''){
+      this.categoryService.apiKategoryByIdGet(<ApiKategoryByIdGetParams>{id: Number.parseInt(this.categoryText)}).subscribe(data => {
+        this.kategoriak = <Kategoria[]>data;
       });
     }
     else{

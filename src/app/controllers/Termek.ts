@@ -27,9 +27,9 @@ export interface ByKategoryParams {
 
 @Injectable()
 export class TermekService {
-  constructor(private http: HttpClient) {}
 
-  baseUrl = "http://localhost:54920";
+  private baseUrl:string = "http://localhost:54920";
+  constructor(private http: HttpClient) {}
 
   /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekGet */
   apiTermekGet(): Observable<__model.Termek[]> {
@@ -37,15 +37,15 @@ export class TermekService {
   }
 
   /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekByIdGet */
-  apiTermekByIdGet(params: ApiTermekByIdGetParams): Observable<void> {
+  apiTermekByIdGet(params: ApiTermekByIdGetParams): Observable<__model.Termek> {
     const pathParams = {
       id: params.id,
     };
-    return this.http.get<void>(this.baseUrl + `/api/Termek/${pathParams.id}`);
+    return this.http.get<__model.Termek>(this.baseUrl + `/api/Termek/${pathParams.id}`);
   }
 
   /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekByNameGet */
-  byName(params: ByNameParams): Observable<void> {
+  byName(params: ByNameParams): Observable<__model.Termek[]> {
     const queryParamBase = {
       name: params.name,
     };
@@ -58,11 +58,11 @@ export class TermekService {
       }
     });
 
-    return this.http.get<void>( this.baseUrl + `/api/Termek/byName`, {params: queryParams});
+    return this.http.get<__model.Termek[]>(this.baseUrl + `/api/Termek/byName`, {params: queryParams});
   }
 
   /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekByKategoryGet */
-  byKategory(params: ByKategoryParams): Observable<void> {
+  byKategory(params: ByKategoryParams): Observable<__model.Termek[]> {
     const queryParamBase = {
       katid: params.katid,
     };
@@ -75,11 +75,11 @@ export class TermekService {
       }
     });
 
-    return this.http.get<void>(this.baseUrl + `/api/Termek/byKategory`, {params: queryParams});
+    return this.http.get<__model.Termek[]>(this.baseUrl + `/api/Termek/byKategory`, {params: queryParams});
   }
 
   /** http://undefinedundefined/swagger-ui.html#!/Termek/ErrorGet */
   error(): Observable<void> {
-    return this.http.get<void>(this.baseUrl + `/error`);
+    return this.http.get<void>(`/error`);
   }
 }

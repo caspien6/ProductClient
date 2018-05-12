@@ -5,8 +5,6 @@
  *   "path": null
  */
 
-import * as __model from '../model';
-
 export interface Termek {
   /** format: int32 */
   id?: number;
@@ -21,6 +19,4 @@ export interface Termek {
   /** format: int32 */
   views?: number;
   kepUrl?: string;
-  kategoria?: __model.Kategoria;
-  kosarTetel?: __model.KosarTetel[];
 }

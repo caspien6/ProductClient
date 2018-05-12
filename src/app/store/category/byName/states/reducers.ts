@@ -10,24 +10,24 @@ import {createFeatureSelector} from '@ngrx/store';
 import * as __model from '../../../../model';
 import * as actions from './actions';
 
-export interface ByKategoryState {
-  data: __model.Termek[];
+export interface ByNameState {
+  data: __model.Kategoria[];
   loading: boolean;
   error: string;
 }
 
-export const initialByKategoryState: ByKategoryState = {
+export const initialByNameState: ByNameState = {
   data: null,
   loading: false,
   error: null,
 };
 
-export const selectorName = 'ByKategory';
-export const getByKategoryStateSelector = createFeatureSelector<ByKategoryState>(selectorName);
+export const selectorName = 'ByName';
+export const getByNameStateSelector = createFeatureSelector<ByNameState>(selectorName);
 
-export function ByKategoryReducer(
-  state: ByKategoryState = initialByKategoryState,
-  action: actions.ByKategoryAction): ByKategoryState {
+export function ByNameReducer(
+  state: ByNameState = initialByNameState,
+  action: actions.ByNameAction): ByNameState {
   switch (action.type) {
     case actions.Actions.START: return {...state, loading: true, error: null};
     case actions.Actions.SUCCESS: return {...state, data: action.payload, loading: false};

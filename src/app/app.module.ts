@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { TermekekDisplayComponent } from './termekek-display/termekek-display.component';
 import { ProductService } from './product.service';
 import { TermekBlockDisplayComponent } from './termek-block-display/termek-block-display.component';
+import { CategoryService } from './controllers/Category';
+import { CategoryDisplayComponent } from './category-display/category-display.component';
 
 
 
@@ -16,7 +18,8 @@ import { TermekBlockDisplayComponent } from './termek-block-display/termek-block
   declarations: [
     AppComponent,
     TermekekDisplayComponent,
-    TermekBlockDisplayComponent
+    TermekBlockDisplayComponent,
+    CategoryDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { TermekBlockDisplayComponent } from './termek-block-display/termek-block
     FormsModule
     
   ],
-  providers: [ProductService],
+  providers: [ProductService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
