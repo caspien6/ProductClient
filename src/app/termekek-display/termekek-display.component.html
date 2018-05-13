@@ -1,20 +1,15 @@
 
 <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Text search" >
 <button (click)='getTermeks()'>Search!</button>
-<input type="text" class="form-control" [(ngModel)]="categoryText" placeholder="Kategory search" >
-<button (click)='getCategory()'>Search!</button>
 
 <div *ngIf='termekek'>
   <div class="container">
     <div class="row">
-      <div class="col col-lg-3 col-md-4 col-sm-12 col-xs-12" *ngFor='let termek of termekek'>
+      <div class="col col-lg-3 col-md-6 col-sm-6 col-xs-12" *ngFor='let termek of termekek'>
         <app-termek-block-display  [product]="termek">
         </app-termek-block-display>
       </div>
-      <div class="col col-lg-3 col-md-4 col-sm-12 col-xs-12" *ngFor='let cat of kategoriak'>
-        <app-category-display [category]="cat">
-        </app-category-display>
-      </div>
+
     </div>
   </div>
 </div>

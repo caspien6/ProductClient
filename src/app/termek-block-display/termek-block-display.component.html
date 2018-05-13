@@ -1,18 +1,15 @@
-<div>
-
-
+<div class="m-1 p-1 border border-primary item-format">
   <p>
-    Név: {{termek.nev}}
+    <a routerLink="/products/{{termek.id}}">{{termek.nev}}</a>
   </p>
   <p>
     Ára: {{termek.ar}} Ft Bruttó
   </p>
 
-  <p>
-    Raktáron: {{termek.raktarkeszlet}}
-  </p>
-  <img src="{{termek.kepUrl}}" />
-  <p>
-    Views: {{termek.views}}
-  </p>
+  <p *ngIf="termek.raktarkeszlet == 0">Nincs raktáron!!</p>
+  <div>
+    <a routerLink="/products/{{termek.id}}">
+      <img class="img-fluid" src="{{termek.kepUrl}}" />
+    </a>
+  </div>
 </div>

@@ -1,0 +1,16 @@
+<div *ngIf="kategoriak">
+
+  <div *ngFor="let mainkat of kategoriak">
+    <ng-container *ngIf="isMainCategory(mainkat)">
+      <h3><a routerLink="/products/categoryfinder/{{mainkat.id}}">{{mainkat.nev}}</a></h3>
+      <ul>
+        <ng-container *ngFor="let alkat of kategoriak">
+          <li *ngIf="mainkat.id === alkat.alkategoria"><a routerLink="/products/categoryfinder/{{alkat.id}}">{{alkat.nev}}</a></li>
+        </ng-container>
+      </ul>
+    </ng-container>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,11 @@
+<div>
+  <input class="btn btn-primary" type="button" (click)="GoBack()" value="Back" />
+</div>
+<div *ngIf="loadedTermek">
+  <h3>{{loadedTermek?.nev}}</h3>
+  <img src="{{loadedTermek?.kepUrl}}"/>
+  <p>Ár: {{loadedTermek?.ar}}</p>
+  <p>Raktárkészlet: {{loadedTermek?.raktarkeszlet}}</p>
+  <p>Leírás: {{loadedTermek?.leiras}}</p>
+  <p>Hányan látták már: {{loadedTermek?.views}}</p>
+</div>
