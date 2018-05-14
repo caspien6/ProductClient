@@ -1,0 +1,11 @@
+<ng-container>
+  <div *ngFor="let kosar of kosars">
+    <p>{{kosar.datum}}</p>
+    <p>{{kosar.statusz.nev}}</p>
+    <ol>
+      <li *ngFor="let ktetel of kosar.kosarTetel">
+        Mennyiseg: {{ktetel.mennyiseg}}, Ár: {{ktetel.ar}} Termek id: {{ktetel.termekId}}
+      </li>
+    </ol>
+  </div>
+</ng-container>

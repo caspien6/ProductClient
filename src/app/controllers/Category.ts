@@ -37,7 +37,8 @@ export interface ByNameParams {
 
 @Injectable()
 export class CategoryService {
-  private baseUrl:string = "http://localhost:54920"
+
+  private baseUrl : string = "http://localhost:54920"
 
   constructor(private http: HttpClient) {}
 
@@ -74,7 +75,7 @@ export class CategoryService {
     Object.entries(bodyParams || {}).forEach(([key, value]) => {
       if (value !== undefined) bodyParamsWithoutUndefined[key] = value;
     });
-    return this.http.put<void>(`/api/Kategory/${pathParams.id}`, bodyParamsWithoutUndefined);
+    return this.http.put<void>(this.baseUrl + `/api/Kategory/${pathParams.id}`, bodyParamsWithoutUndefined);
   }
 
   /** http://undefinedundefined/swagger-ui.html#!/Category/ApiKategoryByIdDelete */
@@ -82,7 +83,7 @@ export class CategoryService {
     const pathParams = {
       id: params.id,
     };
-    return this.http.delete<void>(`/api/Kategory/${pathParams.id}`);
+    return this.http.delete<void>(this.baseUrl + `/api/Kategory/${pathParams.id}`);
   }
 
   /** http://undefinedundefined/swagger-ui.html#!/Category/ApiKategoryByNameGet */

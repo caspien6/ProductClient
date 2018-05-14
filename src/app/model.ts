@@ -6,4 +6,8 @@
  */
 
 export * from './defs/Kategoria';
+export * from './defs/Kosar';
+export * from './defs/Statusz';
+export * from './defs/KosarTetel';
 export * from './defs/Termek';
+export * from './defs/Vevo';

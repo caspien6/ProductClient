@@ -1,6 +1,8 @@
 <div>
   <input class="btn btn-primary" type="button" (click)="GoBack()" value="Back" />
 </div>
+
+<input class="btn btn-primary" *ngIf="LoggedIn()" type="button" value="Add Termek" (click)="addTermek()"/>
 <div *ngIf="loadedTermek">
   <h3>{{loadedTermek?.nev}}</h3>
   <img src="{{loadedTermek?.kepUrl}}"/>

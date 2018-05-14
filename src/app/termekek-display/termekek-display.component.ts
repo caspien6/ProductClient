@@ -17,11 +17,11 @@ import { CategoryService, ApiKategoryByIdGetParams } from '../controllers/Catego
 })
 export class TermekekDisplayComponent implements OnInit {
 
-  searchText: string='';
-  categoryText: string='';
-  
-  constructor(private productservice: ProductService, 
-    private termekService : TermekService,
+  searchText: string = '';
+  categoryText: string = '';
+
+  constructor(private productservice: ProductService,
+    private termekService: TermekService,
     private categoryService: CategoryService
   ) { }
 
@@ -33,38 +33,33 @@ export class TermekekDisplayComponent implements OnInit {
   }
 
   initializeData() {
-    /*this.productservice.getProducts().subscribe(data => {
-      this.termekek = data;
-    });*/
-    
     this.termekService.apiTermekGet().subscribe(data => {
       this.termekek = data;
     });
     this.categoryService.apiKategoryGet().subscribe(data => {
       this.kategoriak = data;
     });
-    
-
   }
 
-  getTermeks(){
-    if (this.searchText !== ''){
-      this.termekService.byName(<ByNameParams>{name: this.searchText}).subscribe(data => {
+  getTermeks() {
+    if (this.searchText !== '') {
+      this.termekService.byName(<ByNameParams>{ name: this.searchText }).subscribe(data => {
         this.termekek = <Termek[]>data;
       });
     }
   }
 
-  getCategory(){
-    if (this.categoryText !== ''){
-      this.categoryService.apiKategoryByIdGet(<ApiKategoryByIdGetParams>{id: Number.parseInt(this.categoryText)}).subscribe(data => {
+  getCategory() {
+    if (this.categoryText !== '') {
+      this.categoryService.apiKategoryByIdGet(<ApiKategoryByIdGetParams>{ id: Number.parseInt(this.categoryText) }).subscribe(data => {
         this.kategoriak = <Kategoria[]>data;
       });
     }
-    else{
+    else {
       this.initializeData();
     }
-    
   }
+
+  
 
 }

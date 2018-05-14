@@ -15,6 +15,11 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TermekService } from './controllers/Termek';
 import { CategoryTermekFinderComponent } from './category-termek-finder/category-termek-finder.component';
 import { TermekFoundedbyCategoryComponent } from './termek-foundedby-category/termek-foundedby-category.component';
+import { VevoService } from './controllers/Vevo';
+import { KosarService } from './controllers/Kosar';
+import { KosarMainComponent } from './kosar-main/kosar-main.component';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 
 
@@ -28,7 +33,8 @@ import { TermekFoundedbyCategoryComponent } from './termek-foundedby-category/te
     CategoryDisplayComponent,
     TermekProfileComponent,
     CategoryTermekFinderComponent,
-    TermekFoundedbyCategoryComponent
+    TermekFoundedbyCategoryComponent,
+    KosarMainComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,10 @@ import { TermekFoundedbyCategoryComponent } from './termek-foundedby-category/te
   providers: [ProductService, 
     CategoryService, 
     TermekService,
-    
+    VevoService,
+    KosarService,
+    AuthGuardService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

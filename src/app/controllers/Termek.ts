@@ -28,7 +28,7 @@ export interface ByKategoryParams {
 @Injectable()
 export class TermekService {
 
-  private baseUrl:string = "http://localhost:54920";
+  private baseUrl : string = "http://localhost:54920"
   constructor(private http: HttpClient) {}
 
   /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekGet */
