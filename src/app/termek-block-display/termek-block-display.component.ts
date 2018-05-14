@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ITermek } from '../dto/termek-interface';
 import { Termek } from '../model';
 
 @Component({

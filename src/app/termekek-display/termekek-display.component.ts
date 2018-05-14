@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
-import { ITermek } from '../dto/termek-interface';
 import { Conditional } from '@angular/compiler';
 
 import { TermekService, ByNameParams } from '../controllers/Termek';
@@ -20,8 +18,7 @@ export class TermekekDisplayComponent implements OnInit {
   searchText: string = '';
   categoryText: string = '';
 
-  constructor(private productservice: ProductService,
-    private termekService: TermekService,
+  constructor(private termekService: TermekService,
     private categoryService: CategoryService
   ) { }
 

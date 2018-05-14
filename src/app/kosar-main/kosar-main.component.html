@@ -1,11 +1,13 @@
-<ng-container>
+<ng-container *ngIf="ktetelTermek">
   <div *ngFor="let kosar of kosars">
     <p>{{kosar.datum}}</p>
     <p>{{kosar.statusz.nev}}</p>
+    Products in the basket:
     <ol>
-      <li *ngFor="let ktetel of kosar.kosarTetel">
-        Mennyiseg: {{ktetel.mennyiseg}}, Ár: {{ktetel.ar}} Termek id: {{ktetel.termekId}}
+      <li *ngFor="let ktetel of ktetelTermek">
+        <a routerLink="/products/{{ktetel.kosarTetel.termekId}}">{{ktetel.termek.nev}} Mennyiseg: {{ktetel.kosarTetel.mennyiseg}}, Ár: {{ktetel.kosarTetel.ar}}</a>
       </li>
+
     </ol>
   </div>
 </ng-container>

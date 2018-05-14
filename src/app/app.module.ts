@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TermekekDisplayComponent } from './termekek-display/termekek-display.component';
-import { ProductService } from './product.service';
 import { TermekBlockDisplayComponent } from './termek-block-display/termek-block-display.component';
 import { CategoryService } from './controllers/Category';
 import { CategoryDisplayComponent } from './category-display/category-display.component';
@@ -20,6 +19,7 @@ import { KosarService } from './controllers/Kosar';
 import { KosarMainComponent } from './kosar-main/kosar-main.component';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -34,7 +34,8 @@ import { AuthService } from './auth.service';
     TermekProfileComponent,
     CategoryTermekFinderComponent,
     TermekFoundedbyCategoryComponent,
-    KosarMainComponent
+    KosarMainComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,7 @@ import { AuthService } from './auth.service';
     FormsModule,
     AppRoutingModule,    
   ],
-  providers: [ProductService, 
+  providers: [ 
     CategoryService, 
     TermekService,
     VevoService,
