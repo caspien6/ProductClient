@@ -16,7 +16,6 @@ import { CategoryTermekFinderComponent } from './category-termek-finder/category
 import { TermekFoundedbyCategoryComponent } from './termek-foundedby-category/termek-foundedby-category.component';
 import { VevoService } from './controllers/Vevo';
 import { KosarService } from './controllers/Kosar';
-import { KosarMainComponent } from './kosar-main/kosar-main.component';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthenticationService } from './authentication.service';
 import { ProfileComponent } from './profile/profile.component';
@@ -24,6 +23,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './controllers/Auth';
+import { KosarMainComponent } from './kosar-main/kosar-main.component';
 
 
 
@@ -37,10 +37,10 @@ import { AuthService } from './controllers/Auth';
     TermekProfileComponent,
     CategoryTermekFinderComponent,
     TermekFoundedbyCategoryComponent,
-    KosarMainComponent,
     ProfileComponent,
     RegistrationFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    KosarMainComponent
     
   ],
   imports: [

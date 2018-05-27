@@ -4,9 +4,11 @@ import { TermekekDisplayComponent } from './termekek-display/termekek-display.co
 import { TermekProfileComponent } from './termek-profile/termek-profile.component';
 import { CategoryTermekFinderComponent } from './category-termek-finder/category-termek-finder.component';
 import { TermekFoundedbyCategoryComponent } from './termek-foundedby-category/termek-foundedby-category.component';
-import { KosarMainComponent } from './kosar-main/kosar-main.component';
+
 import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
+import { KosarMainComponent } from './kosar-main/kosar-main.component';
+
 
 const routes: Routes = [
   { path: 'products', component: TermekekDisplayComponent  },
