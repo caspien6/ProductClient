@@ -24,7 +24,7 @@ export class CategoryTermekFinderComponent implements OnInit {
   }
 
   getAllCategory() {
-    this.categoryService.apiKategoryGet().subscribe(data => {
+    this.categoryService.apiV20CategoryGet().subscribe(data => {
       this.kategoriak = <Kategoria[]>data;
     });
   }

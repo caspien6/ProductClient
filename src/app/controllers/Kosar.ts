@@ -1,11 +1,11 @@
 /* tslint:disable:max-line-length */
 /**
- * v1
- * My API
+ * v2.0
+ * My API V2.0
  *   "path": null
  */
 
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
@@ -27,19 +27,25 @@ export interface KosaridKosarIdMennyisegMennyisegParams {
 @Injectable()
 export class KosarService {
 
-  private baseUrl : string = "http://localhost:54920"
+
+  baseUrl =  "http://localhost:54920"
+
   constructor(private http: HttpClient) {}
 
-  /** http://undefinedundefined/swagger-ui.html#!/Kosar/ApiKosarByVevoId={vevoIdGet */
+  /** http://undefinedundefined/swagger-ui.html#!/Kosar/ApiV2.0KosarByVevoId={vevoIdGet */
   byVevoIdVevoId(params: ByVevoIdVevoIdParams): Observable<__model.Kosar[]> {
+    let header = new HttpHeaders();
+    header = header.set('Authorization','Bearer '+ localStorage.getItem('auth_token'));
     const pathParams = {
       vevoId: params.vevoId,
     };
-    return this.http.get<__model.Kosar[]>(this.baseUrl + `/api/Kosar/byVevoId=${pathParams.vevoId}`);
+    return this.http.get<__model.Kosar[]>(this.baseUrl +`/api/v2.0/Kosar/byVevoId=${pathParams.vevoId}`, {headers:header});
   }
 
-  /** http://undefinedundefined/swagger-ui.html#!/Kosar/ApiKosarKosarid={kosarId}&mennyiseg={mennyisegPost */
+  /** http://undefinedundefined/swagger-ui.html#!/Kosar/ApiV2.0KosarKosarid={kosarId}&mennyiseg={mennyisegPost */
   kosaridKosarIdMennyisegMennyiseg(params: KosaridKosarIdMennyisegMennyisegParams): Observable<void> {
+    let header = new HttpHeaders();
+    header = header.set('Authorization','Bearer '+ localStorage.getItem('auth_token'));
     const pathParams = {
       kosarId: params.kosarId,
       mennyiseg: params.mennyiseg,
@@ -49,6 +55,6 @@ export class KosarService {
     Object.entries(bodyParams || {}).forEach(([key, value]) => {
       if (value !== undefined) bodyParamsWithoutUndefined[key] = value;
     });
-    return this.http.post<void>(this.baseUrl + `/api/Kosar/kosarid=${pathParams.kosarId}&mennyiseg=${pathParams.mennyiseg}`, bodyParamsWithoutUndefined);
+    return this.http.post<void>(this.baseUrl +`/api/v2.0/Kosar/kosarid=${pathParams.kosarId}&mennyiseg=${pathParams.mennyiseg}`, bodyParamsWithoutUndefined,{headers:header});
   }
 }

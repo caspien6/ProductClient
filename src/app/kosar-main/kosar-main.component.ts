@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KosarService, ByVevoIdVevoIdParams } from '../controllers/Kosar';
 import { Kosar, Vevo, Termek, KosarTetel } from '../model';
-import { TermekService, ApiTermekByIdGetParams } from '../controllers/Termek';
+import { TermekService, ApiV20TermekByIdGetParams } from '../controllers/Termek';
 import { KosarTetelTermek } from '../dto/termek-interface';
 
 @Component({
@@ -39,7 +39,7 @@ export class KosarMainComponent implements OnInit {
   }
 
   loadTermek(kosarTetel: KosarTetel){
-    this.termekService.apiTermekByIdGet(<ApiTermekByIdGetParams>{id: kosarTetel.termekId}).subscribe(data => {
+    this.termekService.apiV20TermekByIdGet(<ApiV20TermekByIdGetParams>{id: kosarTetel.termekId}).subscribe(data => {
       this.ktetelTermek.push(new KosarTetelTermek(kosarTetel,(<Termek[]>data)[0] ));
       console.log(data);
       

@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 /**
- * v1
- * My API
+ * v2.0
+ * My API V2.0
  *   "path": null
  */
 
@@ -11,7 +11,7 @@ import {Observable} from 'rxjs/Observable';
 
 import * as __model from '../model';
 
-export interface ApiTermekByIdGetParams {
+export interface ApiV20TermekByIdGetParams {
   /** format: int32 */
   id: number;
 }
@@ -28,23 +28,24 @@ export interface ByKategoryParams {
 @Injectable()
 export class TermekService {
 
-  private baseUrl : string = "http://localhost:54920"
+  baseUrl = "http://localhost:54920"
+
   constructor(private http: HttpClient) {}
 
-  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekGet */
-  apiTermekGet(): Observable<__model.Termek[]> {
-    return this.http.get<__model.Termek[]>(this.baseUrl + `/api/Termek`);
+  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiV2.0TermekGet */
+  apiV20TermekGet(): Observable<__model.Termek[]> {
+    return this.http.get<__model.Termek[]>(this.baseUrl +`/api/v2.0/Termek`);
   }
 
-  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekByIdGet */
-  apiTermekByIdGet(params: ApiTermekByIdGetParams): Observable<__model.Termek> {
+  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiV2.0TermekByIdGet */
+  apiV20TermekByIdGet(params: ApiV20TermekByIdGetParams): Observable<__model.Termek> {
     const pathParams = {
       id: params.id,
     };
-    return this.http.get<__model.Termek>(this.baseUrl + `/api/Termek/${pathParams.id}`);
+    return this.http.get<__model.Termek>(this.baseUrl +`/api/v2.0/Termek/${pathParams.id}`);
   }
 
-  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekByNameGet */
+  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiV2.0TermekByNameGet */
   byName(params: ByNameParams): Observable<__model.Termek[]> {
     const queryParamBase = {
       name: params.name,
@@ -58,10 +59,10 @@ export class TermekService {
       }
     });
 
-    return this.http.get<__model.Termek[]>(this.baseUrl + `/api/Termek/byName`, {params: queryParams});
+    return this.http.get<__model.Termek[]>(this.baseUrl +`/api/v2.0/Termek/byName`, {params: queryParams});
   }
 
-  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiTermekByKategoryGet */
+  /** http://undefinedundefined/swagger-ui.html#!/Termek/ApiV2.0TermekByKategoryGet */
   byKategory(params: ByKategoryParams): Observable<__model.Termek[]> {
     const queryParamBase = {
       katid: params.katid,
@@ -75,11 +76,6 @@ export class TermekService {
       }
     });
 
-    return this.http.get<__model.Termek[]>(this.baseUrl + `/api/Termek/byKategory`, {params: queryParams});
-  }
-
-  /** http://undefinedundefined/swagger-ui.html#!/Termek/ErrorGet */
-  error(): Observable<void> {
-    return this.http.get<void>(`/error`);
+    return this.http.get<__model.Termek[]>(this.baseUrl +`/api/v2.0/Termek/byKategory`, {params: queryParams});
   }
 }

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Conditional } from '@angular/compiler';
 
 import { TermekService, ByNameParams } from '../controllers/Termek';
-import { ApiTermekGetModule } from '../store/termek/apiTermekGet/apiTermekGet.module';
+import { ApiV20TermekGetModule } from '../store/termek/apiV20TermekGet/apiV20TermekGet.module';
 import { Termek, Kategoria } from '../model';
-import { CategoryService, ApiKategoryByIdGetParams } from '../controllers/Category';
+import { CategoryService, ApiV20CategoryByIdGetParams } from '../controllers/Category';
 
 
 @Component({
@@ -30,10 +30,10 @@ export class TermekekDisplayComponent implements OnInit {
   }
 
   initializeData() {
-    this.termekService.apiTermekGet().subscribe(data => {
+    this.termekService.apiV20TermekGet().subscribe(data => {
       this.termekek = data;
     });
-    this.categoryService.apiKategoryGet().subscribe(data => {
+    this.categoryService.apiV20CategoryGet().subscribe(data => {
       this.kategoriak = data;
     });
   }
@@ -48,7 +48,7 @@ export class TermekekDisplayComponent implements OnInit {
 
   getCategory() {
     if (this.categoryText !== '') {
-      this.categoryService.apiKategoryByIdGet(<ApiKategoryByIdGetParams>{ id: Number.parseInt(this.categoryText) }).subscribe(data => {
+      this.categoryService.apiV20CategoryByIdGet(<ApiV20CategoryByIdGetParams>{ id: Number.parseInt(this.categoryText) }).subscribe(data => {
         this.kategoriak = <Kategoria[]>data;
       });
     }

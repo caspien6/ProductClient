@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 /**
- * v1
- * My API
+ * v2.0
+ * My API V2.0
  *   "path": null
  */
 

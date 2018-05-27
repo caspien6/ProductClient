@@ -10,7 +10,8 @@
             <a class="nav-link" routerLink="/category">Kategóriák</a>
         </li>
         <ng-container *ngIf="!jsonUserLoggedIn()">
-            <input [(ngModel)]="userName" class="nav-item mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <input [(ngModel)]="userName" class="nav-item mr-sm-2" type="email" placeholder="User name (email)" aria-label="Email" />
+            <input [(ngModel)]="password" class="nav-item mr-sm-2" type="password" placeholder="pw" aria-label="Password" />
             <input type="button" class="nav-item btn btn-outline-success my-2 my-sm-0" (click)="onSignIn()" value="Sign in" />
         </ng-container>
         <ng-container *ngIf="jsonUserLoggedIn()">

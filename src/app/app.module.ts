@@ -18,9 +18,12 @@ import { VevoService } from './controllers/Vevo';
 import { KosarService } from './controllers/Kosar';
 import { KosarMainComponent } from './kosar-main/kosar-main.component';
 import { AuthGuardService } from './auth-guard.service';
-import { AuthService } from './auth.service';
+import { AuthenticationService } from './authentication.service';
 import { ProfileComponent } from './profile/profile.component';
-
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { HttpModule } from '@angular/http';
+import { AuthService } from './controllers/Auth';
 
 
 
@@ -35,13 +38,17 @@ import { ProfileComponent } from './profile/profile.component';
     CategoryTermekFinderComponent,
     TermekFoundedbyCategoryComponent,
     KosarMainComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegistrationFormComponent,
+    LoginFormComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule,    
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [ 
     CategoryService, 
@@ -49,7 +56,8 @@ import { ProfileComponent } from './profile/profile.component';
     VevoService,
     KosarService,
     AuthGuardService,
-    AuthService
+    AuthService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

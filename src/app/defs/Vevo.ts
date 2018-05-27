@@ -1,11 +1,9 @@
 /* tslint:disable:max-line-length */
 /**
- * v1
- * My API
+ * v2.0
+ * My API V2.0
  *   "path": null
  */
-
-import * as __model from '../model';
 
 export interface Vevo {
   /** format: int32 */
@@ -13,7 +11,5 @@ export interface Vevo {
   nev?: string;
   szamlaszam?: string;
   login?: string;
-  jelszo?: string;
   email?: string;
-  kosar?: __model.Kosar[];
 }

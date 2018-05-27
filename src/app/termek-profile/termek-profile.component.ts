@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TermekService, ApiTermekByIdGetParams } from '../controllers/Termek';
+import { TermekService, ApiV20TermekByIdGetParams } from '../controllers/Termek';
 import { ActivatedRoute } from '@angular/router';
 import { Termek, Vevo } from '../model';
 import { Location } from '@angular/common';
-import { AuthService } from '../auth.service';
+import { AuthenticationService } from '../authentication.service';
 import { KosarService, KosaridKosarIdMennyisegMennyisegParams, ByVevoIdVevoIdParams } from '../controllers/Kosar';
 
 @Component({
@@ -17,7 +17,7 @@ export class TermekProfileComponent implements OnInit {
     private kosarService: KosarService,
     private route: ActivatedRoute,
     private location: Location,
-    private authService: AuthService
+    private authService: AuthenticationService
   ) { }
 
   public loadedTermek: Termek;
@@ -29,7 +29,7 @@ export class TermekProfileComponent implements OnInit {
 
   LoadTermek(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.termekService.apiTermekByIdGet(<ApiTermekByIdGetParams>{ id: id }).subscribe(data => {
+    this.termekService.apiV20TermekByIdGet(<ApiV20TermekByIdGetParams>{ id: id }).subscribe(data => {
       this.loadedTermek = (<Termek[]>data)[0];
     });
   }
@@ -43,7 +43,7 @@ export class TermekProfileComponent implements OnInit {
   }
 
   LoggedIn(): boolean {
-    return this.authService.isLoggedIn;
+    return this.authService.isLoggedIn();
   }
 
   addTermek() {

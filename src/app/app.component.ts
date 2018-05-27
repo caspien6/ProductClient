@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VevoService, VevoParams } from './controllers/Vevo';
 import { Vevo } from './model';
-import { AuthService } from './auth.service';
+import { AuthenticationService } from './authentication.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,36 +12,35 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'app';
   userName: string;
+  password: string;
   welcometext: string;
 
   constructor(private vevoService: VevoService,
-    private authService: AuthService
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
-    const vev = sessionStorage.getItem('vevo');
-    vev ? this.authService.login() : '';
+    if (this.jsonUserLoggedIn()) {      
+      this.welcometext = (<Vevo>JSON.parse(sessionStorage.getItem('vevo'))).nev;
+    }
+    
   }
 
   onSignIn() {
+    
     if (!this.userName) { console.log("nem jó username"); return; }
-    this.vevoService.vevo(<VevoParams>{ name: this.userName }).subscribe(data => {
-      sessionStorage.setItem("vevo", JSON.stringify(data));
-      this.authService.login();
+    this.authenticationService.login(this.userName, this.password).subscribe((obsVevo) =>{
+      obsVevo.subscribe(welc=> this.welcometext=welc);
     });
+
   }
 
   jsonUserLoggedIn(): boolean {
-    let vevo = sessionStorage.getItem('vevo');
-    if (vevo != null) {
-      this.welcometext = (<Vevo>JSON.parse(vevo)).nev;
-    }
-    return vevo != null;
+    return this.authenticationService.isLoggedIn();
   }
 
   onLogout(): void {
-    sessionStorage.removeItem('vevo');
-    this.authService.logout();
+    this.authenticationService.logout();
     window.location.reload();
   }
 
