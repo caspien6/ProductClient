@@ -20,15 +20,15 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthenticationService } from './authentication.service';
 import { ProfileComponent } from './profile/profile.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './controllers/Auth';
 import { KosarMainComponent } from './kosar-main/kosar-main.component';
-
+import { MessageComponent } from './message/message.component';
+import { GrowlModule } from 'primeng/primeng';
 
 
 @NgModule({
-  
+
   declarations: [
     AppComponent,
     TermekekDisplayComponent,
@@ -39,19 +39,20 @@ import { KosarMainComponent } from './kosar-main/kosar-main.component';
     TermekFoundedbyCategoryComponent,
     ProfileComponent,
     RegistrationFormComponent,
-    LoginFormComponent,
-    KosarMainComponent
-    
+    KosarMainComponent,
+    MessageComponent
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    GrowlModule
   ],
-  providers: [ 
-    CategoryService, 
+  providers: [
+    CategoryService,
     TermekService,
     VevoService,
     KosarService,
