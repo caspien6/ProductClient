@@ -8,6 +8,7 @@ import { TermekFoundedbyCategoryComponent } from './termek-foundedby-category/te
 import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { KosarMainComponent } from './kosar-main/kosar-main.component';
+import { MessageComponent } from './message/message.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   },
   { path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuardService]
+  },
+  { path: 'chat',
+    component: MessageComponent,
     canActivate: [AuthGuardService]
   },
   { path: '', redirectTo: '/products', pathMatch: 'full' },

@@ -25,6 +25,13 @@ import { AuthService } from './controllers/Auth';
 import { KosarMainComponent } from './kosar-main/kosar-main.component';
 import { MessageComponent } from './message/message.component';
 import { GrowlModule } from 'primeng/primeng';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {MessageService} from 'primeng/components/common/messageservice';
+import {InputTextModule} from 'primeng/inputtext';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {ButtonModule} from 'primeng/button';
+import {ChatService} from './chat.service';
 
 
 @NgModule({
@@ -49,7 +56,12 @@ import { GrowlModule } from 'primeng/primeng';
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    GrowlModule
+    GrowlModule,
+    MessagesModule,
+    MessageModule,
+    InputTextModule,
+    ScrollPanelModule,
+    ButtonModule
   ],
   providers: [
     CategoryService,
@@ -58,7 +70,9 @@ import { GrowlModule } from 'primeng/primeng';
     KosarService,
     AuthGuardService,
     AuthService,
-    AuthenticationService
+    AuthenticationService,
+    MessageService,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })
